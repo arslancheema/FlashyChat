@@ -1,8 +1,13 @@
 package com.arslancheema.flashchatnewfirebase;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -10,9 +15,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
+    FirebaseAuth mAuth;
     // Constants
     public static final String CHAT_PREFS = "ChatPrefs";
     public static final String DISPLAY_NAME_KEY = "username";
@@ -49,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -95,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
             // form field with an error.
             focusView.requestFocus();
         } else {
-            // TODO: Call create FirebaseUser() here
+            createFirebaseUser();
 
         }
     }
@@ -106,8 +117,45 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Add own logic to check for a valid password
-        return true;
+        String confirmPassword = mConfirmPasswordView.getText().toString();
+        return confirmPassword.equals(password) && password.length() > 4;
+    }
+
+    private void createFirebaseUser(){
+        String email = mEmailView.getText().toString();
+        String password = mPasswordView.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Log.d("FlashChat", "Creating User Succeeded " + task.isSuccessful());
+                if (!task.isSuccessful()){
+                    Log.d("FlashChat", "Creating User Failed " );
+                    showErrorDialog("User Registration Failed");
+                } else {
+                    saveDisplayName();
+                    Intent i = new Intent(RegisterActivity.this,LoginActivity.class);
+                    finish();
+                    startActivity(i);
+                }
+            }
+        });
+    }
+
+    private void showErrorDialog(String message){
+        // 1. Instantiate an AlertDialog.Builder with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Oops")
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok,null)
+                .show();
+
+    }
+
+    private void saveDisplayName (){
+        String displayName = mUsernameView.getText().toString();
+        SharedPreferences sharedPreferences = getSharedPreferences(CHAT_PREFS,0);
+        sharedPreferences.edit().putString(DISPLAY_NAME_KEY,displayName).apply();
     }
 
 
