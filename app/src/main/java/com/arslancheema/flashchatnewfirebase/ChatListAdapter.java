@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
@@ -27,9 +29,38 @@ public class ChatListAdapter extends BaseAdapter {
     // Data type used by Firebase to pass the data to the app
     private ArrayList<DataSnapshot> mDataSnapshots ;
 
+    private ChildEventListener mChildEventListener = new ChildEventListener() {
+        @Override
+        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            mDataSnapshots.add(dataSnapshot);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+        }
+
+        @Override
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
+
     public ChatListAdapter (Activity activity, DatabaseReference reference, String name){
         mActivity = activity;
         mDatabaseReference = reference.child("messages");
+        mDatabaseReference.addChildEventListener(mChildEventListener);
         mDisplayName = name;
         mDataSnapshots = new ArrayList<>();
     }
@@ -44,15 +75,17 @@ public class ChatListAdapter extends BaseAdapter {
         LinearLayout.LayoutParams params ;
     }
 
-    // Listview would ask for number of items
+    // Listview would ask for number of items at first
     @Override
     public int getCount() {
-        return 0;
+        return mDataSnapshots.size();
     }
 
     @Override
     public InstantMessage getItem(int position) {
-        return null;
+        // get relevant data out of DataSnapShot List.
+        DataSnapshot dataSnapshot = mDataSnapshots.get(position);
+        return dataSnapshot.getValue(InstantMessage.class);
     }
 
     @Override
@@ -78,7 +111,8 @@ public class ChatListAdapter extends BaseAdapter {
             // temporarily store in convertview to avoid recalling
             convertView.setTag(holder);
         }
-        // If the view is recycled 
+
+        // If the view is recycled
         final InstantMessage message = getItem(position);
         final ViewHolder holder = (ViewHolder) convertView.getTag();
 
@@ -89,5 +123,9 @@ public class ChatListAdapter extends BaseAdapter {
         holder.body.setText(msg);
 
         return convertView;
+    }
+
+    public void cleanUp(){
+        mDatabaseReference.removeEventListener(mChildEventListener);
     }
 }

@@ -23,6 +23,7 @@ public class MainChatActivity extends AppCompatActivity {
     private EditText mInputText;
     private ImageButton mSendButton;
     private DatabaseReference mDatabaseReference;
+    private ChatListAdapter mChatListAdapter;
 
 
     @Override
@@ -77,8 +78,16 @@ public class MainChatActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        mChatListAdapter = new ChatListAdapter(this,mDatabaseReference,mDisplayName);
+        mChatListView.setAdapter(mChatListAdapter);
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
+        mChatListAdapter.cleanUp();
 
     }
 

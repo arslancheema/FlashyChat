@@ -56,13 +56,13 @@
       <file leaf-file-name="MainChatActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/MainChatActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="73" column="46" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="46" />
+            <state relative-caret-position="544">
+              <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
               <folding>
-                <element signature="e#1460#1686#0" expanded="true" />
-                <element signature="e#1685#1686#0" expanded="true" />
-                <element signature="e#1729#1876#0" expanded="true" />
-                <element signature="e#1875#1876#0" expanded="true" />
+                <element signature="e#1506#1732#0" expanded="true" />
+                <element signature="e#1731#1732#0" expanded="true" />
+                <element signature="e#1775#1922#0" expanded="true" />
+                <element signature="e#1921#1922#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,16 +71,16 @@
       <file leaf-file-name="ChatListAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/ChatListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+            <state relative-caret-position="964">
+              <caret line="128" column="68" selection-start-line="128" selection-start-column="68" selection-end-line="128" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1366#1367#0" expanded="true" />
-                <element signature="e#1390#1391#0" expanded="true" />
-                <element signature="e#1455#1456#0" expanded="true" />
-                <element signature="e#1482#1483#0" expanded="true" />
-                <element signature="e#1539#1540#0" expanded="true" />
-                <element signature="e#1563#1564#0" expanded="true" />
+                <element signature="e#2216#2217#0" expanded="true" />
+                <element signature="e#2260#2261#0" expanded="true" />
+                <element signature="e#2569#2570#0" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#3979#3980#0" expanded="true" />
+                <element signature="e#4054#4055#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1969,8 +1969,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/InstantMessage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/MainChatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/ChatListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/MainChatActivity.java" />
       </list>
     </option>
   </component>
@@ -2594,29 +2594,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/MainChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="73" column="46" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="46" />
+        <state relative-caret-position="544">
+          <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
           <folding>
-            <element signature="e#1460#1686#0" expanded="true" />
-            <element signature="e#1685#1686#0" expanded="true" />
-            <element signature="e#1729#1876#0" expanded="true" />
-            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="e#1506#1732#0" expanded="true" />
+            <element signature="e#1731#1732#0" expanded="true" />
+            <element signature="e#1775#1922#0" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/arslancheema/flashchatnewfirebase/ChatListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+        <state relative-caret-position="964">
+          <caret line="128" column="68" selection-start-line="128" selection-start-column="68" selection-end-line="128" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1539#1540#0" expanded="true" />
-            <element signature="e#1563#1564#0" expanded="true" />
+            <element signature="e#2216#2217#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#3979#3980#0" expanded="true" />
+            <element signature="e#4054#4055#0" expanded="true" />
           </folding>
         </state>
       </provider>
